@@ -1,5 +1,5 @@
 const defaultState = {
-    appName: 'Hermes',
+    appName: 'Argus',
     redirectTo: null,
     inProgress: false
 }
