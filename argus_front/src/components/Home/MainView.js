@@ -22,7 +22,7 @@ class MainView extends React.Component {
       <React.Fragment>
         <ExpansionPanel className={classes.panel}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} >
-            <Typography variant="overline" color="secondary" className={classes.summary}>Choose a tag</Typography>
+            {/*<Typography variant="overline" color="secondary" className={classes.summary}>Choose a tag</Typography>*/}
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
             </ExpansionPanelDetails>

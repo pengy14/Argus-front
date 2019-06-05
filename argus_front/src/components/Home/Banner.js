@@ -27,7 +27,7 @@ const Banner = ({ appName, classes }) => {
             {appName}
         </Typography>
         <Typography variant="h5" align="center" className={classes.text}>
-            A place to share your adventure
+            Subscribe the price change!
         </Typography>
       </div>
   );
