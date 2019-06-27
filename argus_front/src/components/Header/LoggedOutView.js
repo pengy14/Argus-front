@@ -46,7 +46,7 @@ class LoggedOutView extends React.Component {
                       </Typography>
                       </Link>
                       <Email className={classes.icon}/>
-                      <Link to="login">
+                      <Link to="mail">
                       <Typography variant="subheading" className={classes.text} >
                           Inform me
                       </Typography>

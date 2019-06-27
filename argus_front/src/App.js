@@ -9,7 +9,7 @@ import Settings from './components/Settings'
 import Profile from './components/Profile'
 import New from './components/New'
 import Update from './components/Update'
-
+import Mail from './components/Mail'
 const mapStateToProps = state => ({
     ...state.user,
     appName: state.common.appName
@@ -25,8 +25,9 @@ class App extends React.Component {
                     <div>
                     <Header appName={this.props.appName} />
                     <Route path="/" exact component={Home} />
-                    <Route path="/login" component={Login} />
+                    {/*<Route path="/login" component={Login} />*/}
                     <Route path="/register" component={Register} />
+                    <Route path="/mail" component={Mail} />
                     <Route path="/settings" component={Settings} />
                     <Route path="/@:username" component={Profile} />
                     <Route path="/new" component={New} />

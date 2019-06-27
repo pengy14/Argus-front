@@ -2,7 +2,9 @@ const defaultState = {
     appName: 'Argus',
     redirectTo: null,
     inProgress: false,
-    searchResults:[]
+    searchResults:[],
+    currentAdd:{},
+    isSended:false
 }
 
 export default (state=defaultState, action) => {
@@ -20,7 +22,7 @@ export default (state=defaultState, action) => {
         case 'ASYNC_START':
             return {
                 ...state,
-                inProgress: true
+                // inProgress: true
             };
         case 'REDIRECT':
             return {
@@ -48,6 +50,14 @@ export default (state=defaultState, action) => {
                 ...state,
                 searchResults: action.payload
             };
+        case 'ADD_MAIL':
+            console.log('add mail');
+            return {
+                ...state,
+                currentAdd: action.payload,
+                isSended: true
+            };
+
         default:
             return state;
         }
