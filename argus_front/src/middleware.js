@@ -14,6 +14,7 @@ const promiseMiddleware = store => next => action => {
         console.log(action.payload)
         action.payload.then(
             res => {
+                console.log(`res + ${res}`);
                 action.payload = res;
                 store.dispatch(action);
             }

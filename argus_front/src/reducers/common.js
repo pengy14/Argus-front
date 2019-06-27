@@ -1,7 +1,8 @@
 const defaultState = {
     appName: 'Argus',
     redirectTo: null,
-    inProgress: false
+    inProgress: false,
+    searchResults:[]
 }
 
 export default (state=defaultState, action) => {
@@ -40,6 +41,12 @@ export default (state=defaultState, action) => {
             return {
                 ...state,
                 inProgress: false
+            };
+        case 'SEARCH':
+            console.log('search');
+            return {
+                ...state,
+                searchResults: action.payload
             };
         default:
             return state;

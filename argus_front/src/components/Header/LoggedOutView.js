@@ -4,6 +4,8 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import HomeIcon from '@material-ui/icons/Home'
 import PersonIcon from '@material-ui/icons/Person'
+import Email from '@material-ui/icons/Email'
+import SearchField from "react-search-field";
 
 const styles = theme => ({
     AppBar: {
@@ -23,6 +25,9 @@ const styles = theme => ({
 })
 
 class LoggedOutView extends React.Component {
+
+
+    // const onChange = va=>(this.setState())
     render() {
       const { classes } = this.props
       return (
@@ -40,18 +45,18 @@ class LoggedOutView extends React.Component {
                           Home
                       </Typography>
                       </Link>
-                      <PersonIcon className={classes.icon}/>
+                      <Email className={classes.icon}/>
                       <Link to="login">
                       <Typography variant="subheading" className={classes.text} >
-                          Sign In
+                          Inform me
                       </Typography>
                       </Link>
-                      <PersonIcon className={classes.icon}/>
-                      <Link to="register">
-                      <Typography variant="subheading" className={classes.text} >
-                          Sign Up
-                      </Typography>
-                      </Link>
+                      {/*<PersonIcon className={classes.icon}/>*/}
+                      {/*<Link to="register">*/}
+                      {/*<Typography variant="subheading" className={classes.text} >*/}
+                          {/*Sign Up*/}
+                      {/*</Typography>*/}
+                      {/*</Link>*/}
                   </Toolbar>
               </AppBar>
           </React.Fragment>
