@@ -47,7 +47,6 @@ const Commodity = {
         requests.post('/commodity/search',{query:text,website:platform}),
     // requests.axios_post(`${API_ROOT}/commodity/search`,{query:text,website:platform}),
     mail: (mail) =>
-
         requests.post('/mail',mail)
 };
 

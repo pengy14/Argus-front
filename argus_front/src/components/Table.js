@@ -14,12 +14,20 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import {Typography} from "@material-ui/core";
+import Button from '@material-ui/core/Button';
+import Send from '@material-ui/icons/Send';
 
 const useStyles1 = makeStyles(theme => ({
     root: {
         flexShrink: 0,
         color: theme.palette.text.secondary,
         marginLeft: theme.spacing(2.5),
+    },
+    rightIcon: {
+        marginLeft: theme.spacing(1),
+    },
+    button: {
+        margin: theme.spacing(1),
     },
 }));
 
@@ -202,6 +210,13 @@ export default function CustomPaginationActionsTable(props) {
                                 <TableCell align="right"> <Typography variant="body1" align="center" className={classes.text}>
                                     {row.price_date}
                                 </Typography></TableCell>
+                                <TableCell align="right">
+                                    <Button variant="contained" color="primary" className={classes.button} onClick={()=>props.addToListen(row)}>
+                                        Listen
+                                        {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
+                                        <Send className={classes.rightIcon}/>
+                                    </Button>
+                                </TableCell>
                             </TableRow>
                         ))}
 

@@ -4,7 +4,8 @@ const defaultState = {
     inProgress: false,
     searchResults:[],
     currentAdd:{},
-    isSended:false
+    isSended:false,
+    listenedItems:[]
 }
 
 export default (state=defaultState, action) => {
@@ -57,7 +58,12 @@ export default (state=defaultState, action) => {
                 currentAdd: action.payload,
                 isSended: true
             };
-
+        case 'ADD_LISTEN':
+            // console.log(`item ${JSON.stringify(action.payload)}`);
+            state.listenedItems.push(action.payload);
+            return{
+                ...state,
+            };
         default:
             return state;
         }

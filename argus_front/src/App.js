@@ -10,6 +10,8 @@ import Profile from './components/Profile'
 import New from './components/New'
 import Update from './components/Update'
 import Mail from './components/Mail'
+import ShoppingCart from './components/ShoppingCart'
+
 const mapStateToProps = state => ({
     ...state.user,
     appName: state.common.appName
@@ -32,6 +34,7 @@ class App extends React.Component {
                     <Route path="/@:username" component={Profile} />
                     <Route path="/new" component={New} />
                     <Route path="/update" component={Update} />
+                    <Route path="/listening" component={ShoppingCart} />
                     </div>
                 </Router>
             </React.Fragment>

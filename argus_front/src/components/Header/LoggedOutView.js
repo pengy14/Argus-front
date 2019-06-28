@@ -6,6 +6,7 @@ import HomeIcon from '@material-ui/icons/Home'
 import PersonIcon from '@material-ui/icons/Person'
 import Email from '@material-ui/icons/Email'
 import SearchField from "react-search-field";
+import ShoppingCart from '@material-ui/icons/ShoppingCart'
 
 const styles = theme => ({
     AppBar: {
@@ -50,6 +51,12 @@ class LoggedOutView extends React.Component {
                       <Typography variant="subheading" className={classes.text} >
                           Inform me
                       </Typography>
+                      </Link>
+                      <ShoppingCart className={classes.icon}/>
+                      <Link to="listening">
+                          <Typography variant="subheading" className={classes.text} >
+                              Listening List
+                          </Typography>
                       </Link>
                       {/*<PersonIcon className={classes.icon}/>*/}
                       {/*<Link to="register">*/}
