@@ -1,7 +1,9 @@
 
 const superagent = require('superagent');
+const axios = require('axios');
 
-const API_ROOT = 'http://45.76.75.242/api';
+// const API_ROOT = 'http://45.76.75.242/api';
+const API_ROOT = 'http://localhost:8088';
 
 const responseBody = res => res.body;
 
@@ -13,7 +15,15 @@ const requests = {
     post: (url, body) =>
         superagent.post(`${API_ROOT}${url}`).send(body).then(responseBody),
     put: (url, body) =>
-        superagent.put(`${API_ROOT}${url}`).send(body).then(responseBody)
+        superagent.put(`${API_ROOT}${url}`).send(body).then(responseBody),
+    axios_post:
+        (url,body)=>
+            axios({
+                method:'post',
+                url:url,
+                data:body
+            }).then(responseBody)
+
 };
 
 const Auth = {
@@ -32,6 +42,13 @@ const Profile = {
         requests.post('/profiles', { user1:{id}, user2:{username} })
 }
 
+const Commodity = {
+    search: (text,platform) =>
+        requests.post('/commodity/search',{query:text,website:platform}),
+    // requests.axios_post(`${API_ROOT}/commodity/search`,{query:text,website:platform}),
+    mail: (mail) =>
+        requests.post('/mail',mail)
+};
 
 const Articles = {
     all: () => 
@@ -54,5 +71,6 @@ const Articles = {
 export default {
     Articles,
     Auth,
-    Profile
+    Profile,
+    Commodity
 }

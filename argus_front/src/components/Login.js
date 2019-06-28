@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import agent from '../agent'
+import Email from '@material-ui/icons/Email'
 
 const styles = theme => ({
   main: {
@@ -96,10 +97,11 @@ class SignIn extends React.Component {
         <CssBaseline />
         <Paper className={classes.paper}>
           <Avatar className={classes.avatar}>
-            <LockIcon />
+            {/*<LockIcon />*/}
+            <Email/>
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Inform me
           </Typography>
           <form onSubmit={this.submitForm} className={classes.form}>
             <FormControl margin="normal" required fullWidth>
@@ -123,6 +125,28 @@ class SignIn extends React.Component {
                 onChange={this.updateState('password')}
               />
             </FormControl>
+              <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="password">Password</InputLabel>
+                  <Input
+                      name="password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      value={this.state.password}
+                      onChange={this.updateState('password')}
+                  />
+              </FormControl>
+              <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="password">Password</InputLabel>
+                  <Input
+                      name="password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      value={this.state.password}
+                      onChange={this.updateState('password')}
+                  />
+              </FormControl>
             <Button
               type="submit"
               fullWidth
