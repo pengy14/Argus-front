@@ -3,7 +3,7 @@ const superagent = require('superagent');
 const axios = require('axios');
 
 // const API_ROOT = 'http://45.76.75.242/api';
-const API_ROOT = 'http://localhost:8088';
+const API_ROOT = 'http://localhost';
 
 const responseBody = res => res.body;
 
@@ -43,11 +43,19 @@ const Profile = {
 }
 
 const Commodity = {
-    search: (text,platform) =>
-        requests.post('/commodity/search',{query:text,website:platform}),
+    search: (text,platform) =>{
+        switch (platform) {
+            case 'jd':
+                return requests.post(':8089/commodity/search',{query:text,website:platform});
+            case 'amazon':
+                return requests.post(':8088/commodity/search',{query:text,website:platform});
+            default:
+                return requests.post(':8088/commodity/search',{query:text,website:platform});
+        }
+        },
     // requests.axios_post(`${API_ROOT}/commodity/search`,{query:text,website:platform}),
     mail: (mail) =>
-        requests.post('/mail',mail)
+        requests.post(':8087/mail',mail)
 };
 
 const Articles = {

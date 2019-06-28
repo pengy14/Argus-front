@@ -8,6 +8,17 @@ import SearchField from "react-search-field";
 import CustomPaginationActionsTable from "../Table";
 import autoBind from "react-autobind";
 
+import Select from 'react-select'
+//
+// const options = [
+//     'jd' ,
+//     'amazon',
+// ];
+
+const options = [
+    { value: 'jd', label: 'jd' },
+    { value: 'amazon', label: 'amazon' },
+];
 
 const mapStateToProps = state => ({
     appName: state.common.appName,
@@ -35,9 +46,10 @@ class Home extends React.Component {
         super(props);
         this.state = {
             searchText: '',
-            platform: 'amazon',
+            platform: 'jd',
             email: '',
-            password: ''
+            password: '',
+            selected: {value: 'jd', label: 'jd'}
         };
         autoBind(this);
     }
@@ -70,12 +82,18 @@ class Home extends React.Component {
         this.setState({searchText: value});
     };
 
+    handleChange = selected => {
+        this.setState({ platform:selected.value,selected:selected});
+        console.log(`Option selected:`, selected);
+    };
 
     render() {
         const {appName, articles, tags} = this.props
         return (
             <React.Fragment>
                 <Banner appName={appName}/>
+                <Select  value={this.state.selected}
+                         onChange={this.handleChange} options={options}/>
                 <SearchField
                     placeholder="Search..."
                     onChange={this.updateChange}
